@@ -1,0 +1,221 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Check-in | Recovery Companion</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <i class="fa-solid fa-heart-pulse"></i>
+            <h2>Recovery Companion</h2>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="index.html" class="nav-link">
+                <i class="fa-solid fa-house"></i> Dashboard
+            </a>
+
+            <a href="exercise.html" class="nav-link">
+                <i class="fa-solid fa-person-walking"></i> Exercise Coach
+            </a>
+
+            <a href="medications.html" class="nav-link">
+                <i class="fa-solid fa-pills"></i> Medications
+            </a>
+
+            <a href="daily-checkin.html" class="nav-link active">
+                <i class="fa-solid fa-heart-circle-check"></i> Daily Check-in
+            </a>
+
+            <a href="progress.html" class="nav-link">
+                <i class="fa-solid fa-chart-line"></i> My Progress
+            </a>
+
+            <a href="awareness.html" class="nav-link">
+                <i class="fa-solid fa-book-medical"></i> Awareness
+            </a>
+
+            <a href="settings.html" class="nav-link">
+                <i class="fa-solid fa-gear"></i> Settings
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <p>Your recovery matters 💗</p>
+        </div>
+
+    </aside>
+
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <header class="topbar">
+            <div>
+                <h1>Daily Health Check</h1>
+                <p>Track how you feel today and keep your recovery journey organized.</p>
+            </div>
+
+            <a href="index.html" class="primary-btn">
+                <i class="fa-solid fa-arrow-left"></i> Back to Dashboard
+            </a>
+        </header>
+
+
+        <!-- Introduction -->
+        <section class="checkin-intro">
+            <div>
+                <h2>How are you feeling today? 💗</h2>
+                <p>
+                    Complete your daily check-in to keep track of your pain,
+                    wound condition, arm swelling, and fatigue.
+                </p>
+            </div>
+            <i class="fa-solid fa-heart-pulse"></i>
+        </section>
+
+
+        <!-- Health Form -->
+        <section class="health-check">
+
+            <div class="section-heading">
+                <h2>Today's Assessment</h2>
+                <p>Please answer all required questions.</p>
+            </div>
+
+            <form id="healthForm">
+
+                <div class="health-field">
+                    <label for="painLevel">
+                        Pain Level
+                        <span id="painValue">3 / 10</span>
+                    </label>
+
+                    <input
+                        type="range"
+                        id="painLevel"
+                        min="1"
+                        max="10"
+                        value="3"
+                    >
+
+                    <div class="range-labels">
+                        <span>Low Pain</span>
+                        <span>High Pain</span>
+                    </div>
+                </div>
+
+
+                <div class="health-field">
+                    <label for="woundCondition">Wound Condition</label>
+
+                    <select id="woundCondition" required>
+                        <option value="">Select condition</option>
+                        <option value="normal">Looks normal</option>
+                        <option value="redness">Redness or increasing warmth</option>
+                        <option value="discharge">Unusual discharge</option>
+                        <option value="opening">Wound opening</option>
+                        <option value="fever">Fever</option>
+                    </select>
+                </div>
+
+
+                <div class="health-field">
+                    <label for="armSwelling">Do you notice any arm swelling?</label>
+
+                    <select id="armSwelling" required>
+                        <option value="">Select answer</option>
+                        <option value="no">No</option>
+                        <option value="yes">Yes</option>
+                    </select>
+                </div>
+
+
+                <div class="health-field">
+                    <label for="fatigueLevel">
+                        Fatigue Level
+                        <span id="fatigueValue">3 / 10</span>
+                    </label>
+
+                    <input
+                        type="range"
+                        id="fatigueLevel"
+                        min="1"
+                        max="10"
+                        value="3"
+                    >
+
+                    <div class="range-labels">
+                        <span>Low Fatigue</span>
+                        <span>High Fatigue</span>
+                    </div>
+                </div>
+
+
+                <div class="health-field">
+                    <label for="healthNotes">Additional Notes</label>
+
+                    <textarea
+                        id="healthNotes"
+                        rows="4"
+                        placeholder="Write anything else you would like to record..."
+                    ></textarea>
+                </div>
+
+
+                <button type="submit" class="primary-btn save-checkin-btn">
+                    <i class="fa-solid fa-floppy-disk"></i>
+                    Save Daily Check-in
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- Warning Alert -->
+        <section id="healthAlert" class="health-alert" hidden></section>
+
+
+        <!-- Latest Assessment -->
+        <section class="latest-check-card">
+
+            <div class="section-heading">
+                <h2>Latest Health Check</h2>
+                <p>Your most recently saved assessment.</p>
+            </div>
+
+            <div id="lastHealthCheck">
+                <p>No health check recorded yet.</p>
+            </div>
+
+        </section>
+
+
+        <footer class="dashboard-footer">
+            <p>
+                Recovery Companion © 2026 |
+                Your health and comfort matter.
+            </p>
+        </footer>
+
+    </main>
+
+</div>
+
+<script src="js/health.js"></script>
+<script src="js/language.js"></script>
+
+</body>
+</html>

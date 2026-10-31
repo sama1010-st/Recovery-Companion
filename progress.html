@@ -1,0 +1,239 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Progress | Recovery Companion</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="logo">
+            <div class="logo-icon">
+                <i class="fa-solid fa-heart-pulse"></i>
+            </div>
+            <div>
+                <h2>Recovery</h2>
+                <span>COMPANION</span>
+            </div>
+        </div>
+
+        <div class="menu-title">MAIN MENU</div>
+
+        <nav>
+            <a href="index.html" class="nav-link">
+                <i class="fa-solid fa-house"></i> Dashboard
+            </a>
+
+            <a href="exercise.html" class="nav-link">
+                <i class="fa-solid fa-person-walking"></i> Exercise Coach
+            </a>
+
+            <a href="medications.html" class="nav-link">
+                <i class="fa-solid fa-pills"></i> Medications
+            </a>
+
+            <a href="daily-checkin.html" class="nav-link">
+                <i class="fa-solid fa-heart-pulse"></i> Daily Check-in
+            </a>
+
+            <a href="progress.html" class="nav-link active">
+                <i class="fa-solid fa-chart-line"></i> My Progress
+            </a>
+
+            <a href="awareness.html" class="nav-link">
+                <i class="fa-solid fa-book-open"></i> Awareness
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="help-card">
+                <i class="fa-solid fa-heart"></i>
+                <h3>We're here for you</h3>
+                <p>Your recovery journey matters. Take it one day at a time.</p>
+            </div>
+
+            <a href="settings.html" class="nav-link">
+                <i class="fa-solid fa-gear"></i> Settings
+            </a>
+        </div>
+
+    </aside>
+
+    <main class="main-content">
+
+                </header>
+
+        <!-- Back to Dashboard Button -->
+        <a href="index.html" class="back-dashboard-btn">
+            <i class="fa-solid fa-arrow-left"></i>
+            Back to Dashboard
+        </a>
+
+        <section class="dashboard">
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div>
+                <p class="welcome-small">YOUR RECOVERY SPACE</p>
+                <h2>My Progress <span>♡</span></h2>
+            </div>
+
+        </header>
+
+        <section class="dashboard">
+
+            <div class="hero-card">
+                <div class="hero-text">
+                    <span class="hero-tag">EVERY STEP COUNTS</span>
+                    <h1>Your progress<br>is your strength.</h1>
+                    <p>
+                        Follow your daily health records and see
+                        how your recovery journey develops over time.
+                    </p>
+                </div>
+
+                <div class="hero-decoration">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <div class="circle circle-one"></div>
+                    <div class="circle circle-two"></div>
+                </div>
+            </div>
+
+            <div class="section-heading">
+                <div>
+                    <h2>Your Health Overview</h2>
+                    <p>Based on your saved Daily Check-ins.</p>
+                </div>
+            </div>
+
+            <!-- Statistics -->
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <div class="stat-icon pink">
+                        <i class="fa-solid fa-clipboard-check"></i>
+                    </div>
+                    <p>Total Check-ins</p>
+                    <h2 id="totalChecks">0</h2>
+                    <span class="stat-note">Recorded assessments</span>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon purple">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                    </div>
+                    <p>Average Pain</p>
+                    <h2 id="averagePain">--</h2>
+                    <span class="stat-note">Out of 10</span>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon peach">
+                        <i class="fa-solid fa-battery-half"></i>
+                    </div>
+                    <p>Average Fatigue</p>
+                    <h2 id="averageFatigue">--</h2>
+                    <span class="stat-note">Out of 10</span>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon green">
+                        <i class="fa-solid fa-calendar-check"></i>
+                    </div>
+                    <p>Latest Check-in</p>
+                    <h2 id="latestDate">--</h2>
+                    <span class="stat-note">Most recent record</span>
+                </div>
+
+            </div>
+
+            <!-- Charts -->
+
+            <section class="content-card progress-chart-card">
+
+                <div class="card-header">
+                    <div>
+                        <h3>Pain & Fatigue Trends</h3>
+                        <p>Daily records over your latest check-ins.</p>
+                    </div>
+                </div>
+
+                <div class="chart-legend">
+                    <span><i class="legend-dot pain-dot"></i> Pain</span>
+                    <span><i class="legend-dot fatigue-dot"></i> Fatigue</span>
+                </div>
+
+                <div id="progressChart" class="progress-chart">
+                    <p class="chart-empty">Your chart will appear after your first check-in.</p>
+                </div>
+
+                <div class="chart-scale">
+                    <span>0</span>
+                    <span>5</span>
+                    <span>10</span>
+                </div>
+
+            </section>
+
+            <!-- History -->
+
+            <section class="content-card progress-history-card">
+
+                <div class="card-header">
+                    <div>
+                        <h3>Health Check History</h3>
+                        <p>Your recently saved assessments.</p>
+                    </div>
+                </div>
+
+                <div id="progressHistory">
+                    <p class="chart-empty">No records available yet.</p>
+                </div>
+
+            </section>
+
+            <div class="progress-info">
+                <i class="fa-solid fa-circle-info"></i>
+                <p>
+                    This page displays the information you record.
+                    It does not diagnose medical conditions or measure
+                    recovery medically. Share concerning changes with
+                    your medical team.
+                </p>
+            </div>
+
+            <footer>
+                <p>Made with <span>♥</span> for your recovery journey.</p>
+                <p>Recovery Companion © 2026</p>
+            </footer>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/progress.js"></script>
+<script src="js/language.js"></script>
+
+
+</body>
+</html>

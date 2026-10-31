@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings | Recovery Companion</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-logo">
+            <i class="fa-solid fa-heart-pulse"></i>
+            <h2>Recovery<span>Companion</span></h2>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="index.html" class="nav-link">
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="exercise.html" class="nav-link">
+                <i class="fa-solid fa-person-walking"></i>
+                <span>Exercise Coach</span>
+            </a>
+
+            <a href="medications.html" class="nav-link">
+                <i class="fa-solid fa-pills"></i>
+                <span>Medications</span>
+            </a>
+
+            <a href="daily-checkin.html" class="nav-link">
+                <i class="fa-solid fa-clipboard-check"></i>
+                <span>Daily Check-in</span>
+            </a>
+
+            <a href="progress.html" class="nav-link">
+                <i class="fa-solid fa-chart-line"></i>
+                <span>My Progress</span>
+            </a>
+
+            <a href="awareness.html" class="nav-link">
+                <i class="fa-solid fa-book-medical"></i>
+                <span>Awareness Center</span>
+            </a>
+
+            <a href="settings.html" class="nav-link">
+                <i class="fa-solid fa-gear"></i>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-footer">
+            <i class="fa-solid fa-heart"></i>
+            <p>You are stronger every day.</p>
+        </div>
+
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <header class="top-header">
+            <button id="menuToggle" class="menu-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div>
+                <h1>Settings</h1>
+                <p>Manage your personal preferences.</p>
+            </div>
+        </header>
+
+        <!-- Profile Settings -->
+        <section class="settings-card">
+
+            <div class="settings-heading">
+                <div class="settings-icon">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div>
+                    <h2>Personal Information</h2>
+                    <p>Update your profile information.</p>
+                </div>
+            </div>
+
+            <div class="setting-field">
+                <label for="userName">Your Name</label>
+
+                <input
+                    type="text"
+                    id="userName"
+                    placeholder="Enter your name">
+            </div>
+
+        </section>
+
+        <!-- Preferences -->
+        <section class="settings-card">
+
+            <div class="settings-heading">
+                <div class="settings-icon">
+                    <i class="fa-solid fa-sliders"></i>
+                </div>
+
+                <div>
+                    <h2>Preferences</h2>
+                    <p>Customize your application experience.</p>
+                </div>
+            </div>
+
+            <div class="setting-field">
+                <label for="languageSelect">Language</label>
+
+                <select id="languageSelect">
+                    <option value="en">English</option>
+                    <option value="ar">Arabic</option>
+                </select>
+
+                <small data-i18n="languageHelp">
+    Your language preference will apply across the website.
+</small>
+            </div>
+
+            <div class="setting-row">
+                <div>
+                    <h3>Voice Guidance</h3>
+                    <p>Enable or disable spoken exercise guidance.</p>
+                </div>
+
+                <label class="switch">
+                    <input type="checkbox" id="voiceToggle">
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <div class="setting-row">
+                <div>
+                    <h3>Reminders</h3>
+                    <p>Save your preference for medication reminders.</p>
+                </div>
+
+                <label class="switch">
+                    <input type="checkbox" id="reminderToggle">
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+        </section>
+
+        <!-- Save Button -->
+        <button class="save-settings-btn" id="saveSettings">
+            <i class="fa-solid fa-floppy-disk"></i>
+            Save Settings
+        </button>
+
+        <p id="settingsMessage" class="settings-message"></p>
+
+        <!-- Danger Zone -->
+        <section class="settings-card danger-card">
+
+            <div class="settings-heading">
+                <div class="settings-icon danger-icon">
+                    <i class="fa-solid fa-trash"></i>
+                </div>
+
+                <div>
+                    <h2>Data Management</h2>
+                    <p>Manage your locally stored application data.</p>
+                </div>
+            </div>
+
+            <p class="danger-description">
+                This action permanently deletes your saved health
+                check-ins, medication list, and application settings
+                from this browser.
+            </p>
+
+            <button class="delete-data-btn" id="clearData">
+                <i class="fa-solid fa-trash"></i>
+                Clear All Saved Data
+            </button>
+
+        </section>
+
+    </main>
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/language.js"></script>
+<script src="js/settings.js"></script>
+
+</body>
+</html>

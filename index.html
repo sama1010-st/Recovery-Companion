@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Recovery Companion | Dashboard</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="logo">
+            <div class="logo-icon">
+                <i class="fa-solid fa-heart-pulse"></i>
+            </div>
+
+            <div>
+                <h2>Recovery</h2>
+                <span>COMPANION</span>
+            </div>
+        </div>
+
+        <div class="menu-title" data-i18n="mainMenu">MAIN MENU</div>
+
+        <nav>
+
+            <a href="index.html" class="nav-link active">
+                <i class="fa-solid fa-house"></i>
+                <span data-i18n="dashboard">Dashboard</span>
+            </a>
+
+            <a href="exercise.html" class="nav-link">
+                <i class="fa-solid fa-person-walking"></i>
+                <span data-i18n="exerciseCoach">Exercise Coach</span>
+            </a>
+
+            <a href="medications.html" class="nav-link">
+                <i class="fa-solid fa-pills"></i>
+                <span data-i18n="medications">Medications</span>
+            </a>
+
+            <a href="daily-checkin.html" class="nav-link">
+                <i class="fa-solid fa-heart-pulse"></i>
+                <span data-i18n="dailyCheckin">Daily Check-in</span>
+            </a>
+
+            <a href="progress.html" class="nav-link">
+                <i class="fa-solid fa-chart-line"></i>
+                <span data-i18n="myProgress">My Progress</span>
+            </a>
+
+            <a href="awareness.html" class="nav-link">
+                <i class="fa-solid fa-book-open"></i>
+                <span data-i18n="awareness">Awareness</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <div class="help-card">
+                <i class="fa-solid fa-heart"></i>
+                <h3 data-i18n="helpTitle">We're here for you</h3>
+                <p data-i18n="helpText">
+                    Your recovery journey matters. Take it one day at a time.
+                </p>
+            </div>
+
+            <a href="settings.html" class="nav-link">
+                <i class="fa-solid fa-gear"></i>
+                <span data-i18n="settings">Settings</span>
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- Main Content -->
+
+    <main class="main-content">
+
+        <!-- Header -->
+
+        <header class="topbar">
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div>
+                <p class="welcome-small" data-i18n="recoverySpace">
+                    YOUR RECOVERY SPACE
+                </p>
+
+                <h2>
+                    <span data-i18n="welcome">Welcome back,</span>
+                    <span id="userName">User</span> ♡
+                </h2>
+            </div>
+
+            <div class="header-actions">
+
+                
+
+                <button class="notification" aria-label="Notifications">
+                    <i class="fa-regular fa-bell"></i>
+                    <span></span>
+                </button>
+
+                <div class="profile">
+
+                    <div class="avatar" id="userAvatar">U</div>
+
+                    <div>
+                        <h4 id="profileName">User</h4>
+                        <p data-i18n="patientAccount">Patient Account</p>
+                    </div>
+
+                </div>
+
+                <button id="logoutBtn" class="primary-btn" type="button">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span data-i18n="logout">Logout</span>
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- Dashboard -->
+
+        <section class="dashboard" id="dashboard">
+
+            <!-- Hero -->
+
+            <div class="hero-card">
+
+                <div class="hero-text">
+
+                    <span class="hero-tag" data-i18n="heroTag">
+                        YOUR JOURNEY, YOUR STRENGTH
+                    </span>
+
+                    <h1 data-i18n="heroTitle">
+                        Every small step<br>is a big victory.
+                    </h1>
+
+                    <p data-i18n="heroDescription">
+                        Your recovery journey is unique.
+                        Let's make today a healthier day together.
+                    </p>
+
+                    <a href="daily-checkin.html" class="primary-btn hero-btn">
+                        <i class="fa-solid fa-heart"></i>
+                        <span data-i18n="startJourney">Start Today's Journey</span>
+                    </a>
+
+                </div>
+
+                <div class="hero-decoration">
+                    <i class="fa-solid fa-ribbon"></i>
+                    <div class="circle circle-one"></div>
+                    <div class="circle circle-two"></div>
+                </div>
+
+            </div>
+
+
+            <!-- Statistics -->
+
+            <div class="section-heading">
+
+                <div>
+                    <h2 data-i18n="overview">Your Overview</h2>
+                    <p data-i18n="overviewDescription">
+                        A little progress every day adds up.
+                    </p>
+                </div>
+
+                <span class="today-date" id="todayDate"></span>
+
+            </div>
+
+
+            <div class="stats-grid">
+
+                <!-- Exercises Statistics -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon pink">
+                        <i class="fa-solid fa-person-walking"></i>
+                    </div>
+
+                    <p data-i18n="todaysExercises">Today's Exercises</p>
+                    <h2>2 <small>/ 3</small></h2>
+                    <span class="stat-note" data-i18n="demoInformation">
+                        Demo information
+                    </span>
+
+                </div>
+
+
+                <!-- Medication Statistics -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon purple">
+                        <i class="fa-solid fa-pills"></i>
+                    </div>
+
+                    <p data-i18n="medication">Medication</p>
+
+                    <h2>
+                        <span id="takenMedications">0</span>
+                        <small>/ <span id="totalMedications">0</span></small>
+                    </h2>
+
+                    <span class="stat-note" id="medicationNote">
+                        Loading medication data...
+                    </span>
+
+                </div>
+
+
+                <!-- Daily Check-in Statistics -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon peach">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+
+                    <p data-i18n="dailyCheckin">Daily Check-in</p>
+
+                    <h2 id="checkinStatus">Pending</h2>
+
+                    <span class="stat-note" id="checkinNote">
+                        Your daily assessment
+                    </span>
+
+                </div>
+
+
+                <!-- Recovery Days -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon green">
+                        <i class="fa-solid fa-calendar-check"></i>
+                    </div>
+
+                    <p data-i18n="recoveryDays">Recovery Days</p>
+                    <h2>12</h2>
+
+                    <span class="stat-note" data-i18n="demoInformation">
+                        Demo information
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- Main Grid -->
+
+            <div class="content-grid">
+
+                <!-- Exercises -->
+
+                <div class="content-card">
+
+                    <div class="card-header">
+
+                        <div>
+                            <h3 data-i18n="todaysExercises">Today's Exercises</h3>
+                            <p data-i18n="gentleMovements">
+                                Gentle movements for your recovery.
+                            </p>
+                        </div>
+
+                        <a href="exercise.html" data-i18n="viewAll">View all</a>
+
+                    </div>
+
+
+                    <div class="exercise-item">
+
+                        <div class="exercise-icon">
+                            <i class="fa-solid fa-person"></i>
+                        </div>
+
+                        <div class="exercise-info">
+                            <h4 data-i18n="shoulderMobility">Shoulder Mobility</h4>
+                            <p data-i18n="shoulderDuration">5 minutes · Gentle movement</p>
+                        </div>
+
+                        <span class="completed" aria-label="Completed">
+                            <i class="fa-solid fa-check"></i>
+                        </span>
+
+                    </div>
+
+
+                    <div class="exercise-item">
+
+                        <div class="exercise-icon">
+                            <i class="fa-solid fa-arrows-up-down"></i>
+                        </div>
+
+                        <div class="exercise-info">
+                            <h4 data-i18n="armStretching">Arm Stretching</h4>
+                            <p data-i18n="armDuration">5 minutes · Guided exercise</p>
+                        </div>
+
+                        <a href="exercise.html" class="start-btn" data-i18n="start">
+                            Start
+                        </a>
+
+                    </div>
+
+
+                    <div class="exercise-item">
+
+                        <div class="exercise-icon">
+                            <i class="fa-solid fa-hand"></i>
+                        </div>
+
+                        <div class="exercise-info">
+                            <h4 data-i18n="handMovements">Hand Movements</h4>
+                            <p data-i18n="handDuration">3 minutes · Gentle exercise</p>
+                        </div>
+
+                        <a href="exercise.html" class="start-btn" data-i18n="start">
+                            Start
+                        </a>
+
+                    </div>
+
+
+                    <p class="medical-note">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <span data-i18n="medicalNote">
+                            Exercises must follow your medical team's instructions.
+                        </span>
+                    </p>
+
+                </div>
+
+
+                <!-- Reminders Preview -->
+
+                <div class="content-card">
+
+                    <div class="card-header">
+
+                        <div>
+                            <h3 data-i18n="upcomingReminders">Upcoming Reminders</h3>
+                            <p data-i18n="remindersDescription">
+                                Stay on track with your schedule.
+                            </p>
+                        </div>
+
+                        <a href="medications.html" data-i18n="viewAll">View all</a>
+
+                    </div>
+
+
+                    <div id="remindersList"></div>
+
+
+                    <p class="medical-note" id="remindersNote">
+                        Loading reminders...
+                    </p>
+
+
+                    <p class="medical-note">
+                        <i class="fa-solid fa-shield-heart"></i>
+                        <span data-i18n="doctorMedicationNote">
+                            Medication schedules are set by your doctor.
+                        </span>
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Daily Health Check Preview -->
+
+            <section class="content-card health-check">
+
+                <div class="card-header">
+
+                    <div>
+                        <h3 data-i18n="dailyHealthCheck">Daily Health Check 💗</h3>
+                        <p data-i18n="healthCheckDescription">
+                            Tell us how you are feeling today.
+                        </p>
+                    </div>
+
+                    <a href="daily-checkin.html" data-i18n="openCheckin">
+                        Open Check-in
+                    </a>
+
+                </div>
+
+
+                <p class="health-preview-text" data-i18n="healthPreview">
+                    Your daily health assessment helps you record pain,
+                    wound condition, arm swelling, and fatigue.
+                </p>
+
+
+                <a href="daily-checkin.html" class="primary-btn health-preview-btn">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                    <span data-i18n="goToCheckin">Go to Daily Check-in</span>
+                </a>
+
+            </section>
+
+
+            <!-- Progress Preview -->
+
+            <div class="content-card progress-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h3 data-i18n="recoveryJourney">Your Recovery Journey</h3>
+                        <p data-i18n="progressDescription">
+                            Keep track of your daily progress.
+                        </p>
+                    </div>
+
+                    <a href="progress.html" data-i18n="viewDetails">
+                        View details
+                    </a>
+
+                </div>
+
+
+                <div class="progress-content">
+
+                    <div class="progress-circle">
+
+                        <div class="progress-inner">
+                            <h2>75%</h2>
+                            <p data-i18n="demoProgress">Demo progress</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="progress-message">
+
+                        <h3 data-i18n="doingGreat">You're doing great! 💗</h3>
+
+                        <p data-i18n="progressMessage">
+                            Every step matters. Keep following your
+                            personalized recovery plan.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Footer -->
+
+            <footer>
+
+                <p data-i18n="footerMessage">
+                    Made with <span>♥</span> for your recovery journey.
+                </p>
+
+                <p>Recovery Companion © 2026</p>
+
+            </footer>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- JavaScript Files -->
+
+<script src="js/language.js"></script>
+<script src="js/main.js"></script>
+<script src="js/dashboard.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+

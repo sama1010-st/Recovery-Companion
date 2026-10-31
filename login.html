@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
+<title>Login | Recovery Companion</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+    .auth-container {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 25px;
+        background: #fff7fa;
+    }
+
+    .auth-card {
+        width: 100%;
+        max-width: 430px;
+        background: white;
+        padding: 40px;
+        border-radius: 22px;
+        box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+    }
+
+    .auth-logo {
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+    .auth-logo h1 {
+        color: #d86b91;
+        font-size: 27px;
+    }
+
+    .auth-logo p {
+        color: #888;
+        margin-top: 8px;
+    }
+
+    .auth-card label {
+        display: block;
+        margin: 18px 0 8px;
+        font-weight: 600;
+    }
+
+    .auth-card input {
+        width: 100%;
+        padding: 13px;
+        border: 1px solid #eadde3;
+        border-radius: 10px;
+        outline: none;
+        font-size: 15px;
+        box-sizing: border-box;
+    }
+
+    .auth-card input:focus {
+        border-color: #d86b91;
+    }
+
+    .auth-button {
+        width: 100%;
+        margin-top: 25px;
+        padding: 14px;
+        background: #d86b91;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .auth-button:hover {
+        background: #c6537c;
+    }
+
+    .auth-switch {
+        text-align: center;
+        margin-top: 22px;
+        color: #777;
+    }
+
+    .auth-switch a {
+        color: #d86b91;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    #message {
+        margin-top: 15px;
+        text-align: center;
+        font-size: 14px;
+    }
+</style>
+```
+
+</head>
+
+<body>
+
+```
+<div class="auth-container">
+
+    <div class="auth-card">
+
+        <div class="auth-logo">
+            <h1>Recovery Companion</h1>
+            <p>Welcome back! Please login to continue.</p>
+        </div>
+
+        <form id="loginForm">
+
+            <label for="email">Email Address</label>
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                required
+            >
+
+            <label for="password">Password</label>
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Enter your password"
+                required
+            >
+
+            <button type="submit" class="auth-button">
+                Login
+            </button>
+
+            <p id="message"></p>
+
+        </form>
+
+        <div class="auth-switch">
+            Don't have an account?
+            <a href="register.html">Create Account</a>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="js/auth.js"></script>
+```
+
+</body>
+</html>
+

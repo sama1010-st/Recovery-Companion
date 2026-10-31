@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Awareness Center | Recovery Companion</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-logo">
+            <i class="fa-solid fa-heart-pulse"></i>
+            <h2>Recovery<span>Companion</span></h2>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="index.html" class="nav-link">
+                <i class="fa-solid fa-house"></i>
+                <span data-i18n="dashboard">Dashboard</span>
+            </a>
+
+            <a href="exercise.html" class="nav-link">
+                <i class="fa-solid fa-person-walking"></i>
+                <span data-i18n="exerciseCoach">Exercise Coach</span>
+            </a>
+
+            <a href="medications.html" class="nav-link">
+                <i class="fa-solid fa-pills"></i>
+                <span data-i18n="medications">Medications</span>
+            </a>
+
+            <a href="daily-checkin.html" class="nav-link">
+                <i class="fa-solid fa-clipboard-check"></i>
+                <span data-i18n="dailyCheckin">Daily Check-in</span>
+            </a>
+
+            <a href="progress.html" class="nav-link">
+                <i class="fa-solid fa-chart-line"></i>
+                <span data-i18n="myProgress">My Progress</span>
+            </a>
+
+            <a href="awareness.html" class="nav-link active">
+                <i class="fa-solid fa-book-medical"></i>
+                <span data-i18n="awareness">Awareness Center</span>
+            </a>
+
+            <a href="settings.html" class="nav-link">
+                <i class="fa-solid fa-gear"></i>
+                <span data-i18n="settings">Settings</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-footer">
+            <i class="fa-solid fa-heart"></i>
+            <p data-i18n="sidebarFooter">You are stronger every day.</p>
+        </div>
+
+    </aside>
+
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <header class="top-header">
+
+            <button id="menuToggle" class="menu-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div>
+                <h1 data-i18n="pageTitle">Awareness Center</h1>
+                <p data-i18n="pageSubtitle">
+                    Knowledge and guidance for your recovery journey.
+                </p>
+            </div>
+
+        </header>
+
+
+        <!-- Back to Dashboard -->
+        <a href="index.html" class="back-dashboard-btn">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span data-i18n="backDashboard">Back to Dashboard</span>
+        </a>
+
+
+        <!-- Welcome -->
+        <section class="awareness-hero">
+
+            <div>
+                <span class="awareness-label" data-i18n="heroLabel">
+                    RECOVERY KNOWLEDGE
+                </span>
+
+                <h2 data-i18n="heroTitle">
+                    Your Recovery, Your Strength.
+                </h2>
+
+                <p data-i18n="heroDescription">
+                    Learn about post-surgery care, healthy habits,
+                    warning signs, and emotional well-being.
+                </p>
+            </div>
+
+            <div class="awareness-hero-icon">
+                <i class="fa-solid fa-heart"></i>
+            </div>
+
+        </section>
+
+
+        <!-- Recovery Guidelines -->
+        <section class="awareness-section">
+
+            <div class="section-heading">
+                <h2 data-i18n="guidelinesTitle">Recovery Guidelines</h2>
+                <p data-i18n="guidelinesSubtitle">
+                    Simple information to support your recovery.
+                </p>
+            </div>
+
+            <div class="awareness-grid">
+
+                <!-- Gentle Movement -->
+                <div class="awareness-card">
+                    <div class="awareness-icon">
+                        <i class="fa-solid fa-person-walking"></i>
+                    </div>
+
+                    <h3 data-i18n="movementTitle">Gentle Movement</h3>
+
+                    <p data-i18n="movementDescription">
+                        Follow the exercises recommended by your
+                        healthcare team. Start gently and avoid
+                        movements that cause pain.
+                    </p>
+                </div>
+
+
+                <!-- Wound Care -->
+                <div class="awareness-card">
+                    <div class="awareness-icon">
+                        <i class="fa-solid fa-bandage"></i>
+                    </div>
+
+                    <h3 data-i18n="woundTitle">Wound Care</h3>
+
+                    <p data-i18n="woundDescription">
+                        Follow your medical team's instructions
+                        for keeping the surgical area clean and
+                        monitoring changes.
+                    </p>
+                </div>
+
+
+                <!-- Medication Safety -->
+                <div class="awareness-card">
+                    <div class="awareness-icon">
+                        <i class="fa-solid fa-pills"></i>
+                    </div>
+
+                    <h3 data-i18n="medicationTitle">Medication Safety</h3>
+
+                    <p data-i18n="medicationDescription">
+                        Take medications exactly as prescribed.
+                        Do not change your dose or stop a medication
+                        without consulting your healthcare team.
+                    </p>
+                </div>
+
+
+                <!-- Rest and Sleep -->
+                <div class="awareness-card">
+                    <div class="awareness-icon">
+                        <i class="fa-solid fa-bed"></i>
+                    </div>
+
+                    <h3 data-i18n="restTitle">Rest and Sleep</h3>
+
+                    <p data-i18n="restDescription">
+                        Give your body enough time to rest.
+                        Follow your doctor's advice about daily
+                        activities and returning to normal routines.
+                    </p>
+                </div>
+
+
+                <!-- Healthy Nutrition -->
+                <div class="awareness-card">
+                    <div class="awareness-icon">
+                        <i class="fa-solid fa-apple-whole"></i>
+                    </div>
+
+                    <h3 data-i18n="nutritionTitle">Healthy Nutrition</h3>
+
+                    <p data-i18n="nutritionDescription">
+                        Maintain balanced meals and drink enough
+                        fluids, unless your healthcare team has
+                        given you different instructions.
+                    </p>
+                </div>
+
+
+                <!-- Emotional Well-being -->
+                <div class="awareness-card">
+                    <div class="awareness-icon">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+
+                    <h3 data-i18n="emotionalTitle">Emotional Well-being</h3>
+
+                    <p data-i18n="emotionalDescription">
+                        Recovery can be emotionally challenging.
+                        Talk to someone you trust and ask your
+                        healthcare team about available support.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Warning Signs -->
+        <section class="awareness-section">
+
+            <div class="section-heading">
+                <h2 data-i18n="warningTitle">Important Warning Signs</h2>
+
+                <p data-i18n="warningSubtitle">
+                    Know when to contact your healthcare team.
+                </p>
+            </div>
+
+            <div class="warning-card">
+
+                <div class="warning-title">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+
+                    <h3 data-i18n="warningHeading">
+                        Pay Attention to These Changes
+                    </h3>
+                </div>
+
+                <ul>
+                    <li data-i18n="warning1">
+                        Increasing redness, warmth, or swelling around the wound.
+                    </li>
+
+                    <li data-i18n="warning2">
+                        New or worsening pain.
+                    </li>
+
+                    <li data-i18n="warning3">
+                        Unusual fluid, pus, or a bad smell from the wound.
+                    </li>
+
+                    <li data-i18n="warning4">
+                        Fever or chills.
+                    </li>
+
+                    <li data-i18n="warning5">
+                        New or increasing swelling in the arm.
+                    </li>
+                </ul>
+
+                <div class="warning-note">
+                    <i class="fa-solid fa-circle-info"></i>
+
+                    <p data-i18n="warningNote">
+                        Contact your healthcare team promptly if you
+                        notice these symptoms. Seek urgent medical
+                        care for severe symptoms, chest pain, or
+                        difficulty breathing.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Daily Tips -->
+        <section class="awareness-section">
+
+            <div class="section-heading">
+                <h2 data-i18n="tipsTitle">Daily Recovery Tips</h2>
+
+                <p data-i18n="tipsSubtitle">
+                    Small steps can make a difference.
+                </p>
+            </div>
+
+            <div class="tips-container">
+
+                <div class="tip-item">
+                    <i class="fa-solid fa-check-circle"></i>
+                    <span data-i18n="tip1">
+                        Follow your personal recovery plan.
+                    </span>
+                </div>
+
+                <div class="tip-item">
+                    <i class="fa-solid fa-check-circle"></i>
+                    <span data-i18n="tip2">
+                        Attend your scheduled follow-up appointments.
+                    </span>
+                </div>
+
+                <div class="tip-item">
+                    <i class="fa-solid fa-check-circle"></i>
+                    <span data-i18n="tip3">
+                        Record your symptoms and daily progress.
+                    </span>
+                </div>
+
+                <div class="tip-item">
+                    <i class="fa-solid fa-check-circle"></i>
+                    <span data-i18n="tip4">
+                        Ask for help whenever you need it.
+                    </span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Medical Disclaimer -->
+        <div class="medical-disclaimer">
+
+            <i class="fa-solid fa-user-doctor"></i>
+
+            <p>
+                <strong data-i18n="disclaimerTitle">Medical Disclaimer:</strong>
+
+                <span data-i18n="disclaimerText">
+                    This platform provides general educational information.
+                    It does not replace professional medical advice,
+                    diagnosis, or treatment. Always follow your healthcare
+                    team's instructions.
+                </span>
+            </p>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<script src="js/main.js"></script>
+<script src="js/language.js"></script>
+
+<script>
+    // Awareness Center translations
+    const awarenessTranslations = {
+
+        en: {
+            backDashboard: "Back to Dashboard",
+            pageTitle: "Awareness Center",
+            pageSubtitle: "Knowledge and guidance for your recovery journey.",
+
+            heroLabel: "RECOVERY KNOWLEDGE",
+            heroTitle: "Your Recovery, Your Strength.",
+            heroDescription: "Learn about post-surgery care, healthy habits, warning signs, and emotional well-being.",
+
+            guidelinesTitle: "Recovery Guidelines",
+            guidelinesSubtitle: "Simple information to support your recovery.",
+
+            movementTitle: "Gentle Movement",
+            movementDescription: "Follow the exercises recommended by your healthcare team. Start gently and avoid movements that cause pain.",
+
+            woundTitle: "Wound Care",
+            woundDescription: "Follow your medical team's instructions for keeping the surgical area clean and monitoring changes.",
+
+            medicationTitle: "Medication Safety",
+            medicationDescription: "Take medications exactly as prescribed. Do not change your dose or stop a medication without consulting your healthcare team.",
+
+            restTitle: "Rest and Sleep",
+            restDescription: "Give your body enough time to rest. Follow your doctor's advice about daily activities and returning to normal routines.",
+
+            nutritionTitle: "Healthy Nutrition",
+            nutritionDescription: "Maintain balanced meals and drink enough fluids, unless your healthcare team has given you different instructions.",
+
+            emotionalTitle: "Emotional Well-being",
+            emotionalDescription: "Recovery can be emotionally challenging. Talk to someone you trust and ask your healthcare team about available support.",
+
+            warningTitle: "Important Warning Signs",
+            warningSubtitle: "Know when to contact your healthcare team.",
+            warningHeading: "Pay Attention to These Changes",
+
+            warning1: "Increasing redness, warmth, or swelling around the wound.",
+            warning2: "New or worsening pain.",
+            warning3: "Unusual fluid, pus, or a bad smell from the wound.",
+            warning4: "Fever or chills.",
+            warning5: "New or increasing swelling in the arm.",
+
+            warningNote: "Contact your healthcare team promptly if you notice these symptoms. Seek urgent medical care for severe symptoms, chest pain, or difficulty breathing.",
+
+            tipsTitle: "Daily Recovery Tips",
+            tipsSubtitle: "Small steps can make a difference.",
+
+            tip1: "Follow your personal recovery plan.",
+            tip2: "Attend your scheduled follow-up appointments.",
+            tip3: "Record your symptoms and daily progress.",
+            tip4: "Ask for help whenever you need it.",
+
+            disclaimerTitle: "Medical Disclaimer:",
+            disclaimerText: "This platform provides general educational information. It does not replace professional medical advice, diagnosis, or treatment. Always follow your healthcare team's instructions.",
+
+            sidebarFooter: "You are stronger every day."
+        },
+
+        ar: {
+            backDashboard: "العودة إلى لوحة التحكم",
+            pageTitle: "مركز التوعية",
+            pageSubtitle: "المعرفة والإرشادات لدعم رحلة التعافي.",
+
+            heroLabel: "معلومات عن التعافي",
+            heroTitle: "تعافيك هو مصدر قوتك.",
+            heroDescription: "تعرفي على الرعاية بعد الجراحة، والعادات الصحية، والعلامات التحذيرية، والصحة النفسية.",
+
+            guidelinesTitle: "إرشادات التعافي",
+            guidelinesSubtitle: "معلومات بسيطة لدعم رحلة تعافيك.",
+
+            movementTitle: "الحركة الخفيفة",
+            movementDescription: "اتبعي التمارين التي يوصي بها الفريق الطبي. ابدئي بحركات بسيطة وتجنبي أي حركة تسبب الألم.",
+
+            woundTitle: "العناية بالجرح",
+            woundDescription: "اتبعي تعليمات الفريق الطبي للحفاظ على نظافة مكان الجراحة ومراقبة أي تغيرات.",
+
+            medicationTitle: "الاستخدام الآمن للأدوية",
+            medicationDescription: "تناولي الأدوية بالجرعات المحددة من الطبيب. لا تغيري الجرعة أو توقفي أي دواء دون استشارة الفريق الطبي.",
+
+            restTitle: "الراحة والنوم",
+            restDescription: "امنحي جسمك الوقت الكافي للراحة. اتبعي نصائح الطبيب بشأن الأنشطة اليومية والعودة إلى روتينك المعتاد.",
+
+            nutritionTitle: "التغذية الصحية",
+            nutritionDescription: "احرصي على تناول وجبات متوازنة وشرب كمية كافية من السوائل، ما لم يوصِ الفريق الطبي بغير ذلك.",
+
+            emotionalTitle: "الصحة النفسية",
+            emotionalDescription: "قد تكون فترة التعافي صعبة من الناحية النفسية. تحدثي مع شخص تثقين به واسألي الفريق الطبي عن الدعم المتاح.",
+
+            warningTitle: "علامات تحذيرية مهمة",
+            warningSubtitle: "تعرفي على الحالات التي تستدعي التواصل مع الفريق الطبي.",
+            warningHeading: "انتبهي لهذه التغيرات",
+
+            warning1: "زيادة الاحمرار أو السخونة أو التورم حول الجرح.",
+            warning2: "ظهور ألم جديد أو زيادة الألم الموجود.",
+            warning3: "خروج سوائل غير طبيعية أو صديد أو ظهور رائحة كريهة من الجرح.",
+            warning4: "ارتفاع درجة الحرارة أو الشعور بالقشعريرة.",
+            warning5: "ظهور تورم جديد أو زيادة التورم في الذراع.",
+
+            warningNote: "تواصلي مع الفريق الطبي سريعًا عند ملاحظة هذه الأعراض. اطلبي الرعاية الطبية العاجلة عند ظهور أعراض شديدة أو ألم في الصدر أو صعوبة في التنفس.",
+
+            tipsTitle: "نصائح يومية للتعافي",
+            tipsSubtitle: "الخطوات الصغيرة تصنع فرقًا.",
+
+            tip1: "اتبعي خطة التعافي الخاصة بكِ.",
+            tip2: "احرصي على حضور مواعيد المتابعة الطبية.",
+            tip3: "سجلي الأعراض وتقدمك اليومي.",
+            tip4: "اطلبي المساعدة كلما احتجتِ إليها.",
+
+            disclaimerTitle: "تنويه طبي:",
+            disclaimerText: "تقدم هذه المنصة معلومات تعليمية عامة، ولا تُغني عن الاستشارة الطبية المتخصصة أو التشخيص أو العلاج. احرصي دائمًا على اتباع تعليمات الفريق الطبي.",
+
+            sidebarFooter: "أنتِ أقوى كل يوم."
+        }
+    };
+
+
+    // Apply Awareness Center translations
+    function translateAwarenessPage() {
+
+        let language = "en";
+
+        if (typeof window.getCurrentLanguage === "function") {
+            language = window.getCurrentLanguage();
+        } else {
+            const settings = JSON.parse(
+                localStorage.getItem("recoveryAppSettings") || "{}"
+            );
+
+            language =
+                localStorage.getItem("app_language") ||
+                settings.app_language ||
+                settings.language ||
+                "en";
+        }
+
+        const translations =
+            awarenessTranslations[language] || awarenessTranslations.en;
+
+        document.querySelectorAll("[data-i18n]").forEach(element => {
+
+            const key = element.getAttribute("data-i18n");
+
+            if (!translations[key]) return;
+
+            element.textContent = translations[key];
+
+        });
+
+        document.documentElement.lang = language;
+        document.documentElement.dir =
+            language === "ar" ? "rtl" : "ltr";
+
+        document.body.classList.toggle(
+            "arabic-language",
+            language === "ar"
+        );
+    }
+
+
+    document.addEventListener("DOMContentLoaded", () => {
+        translateAwarenessPage();
+    });
+
+
+    // Update language when changed from Settings
+    window.addEventListener("globalLanguageChanged", translateAwarenessPage);
+    window.addEventListener("appSettingsChanged", translateAwarenessPage);
+
+    window.addEventListener("storage", event => {
+
+        if (
+            event.key === "app_language" ||
+            event.key === "recoveryAppSettings"
+        ) {
+            translateAwarenessPage();
+        }
+
+    });
+
+</script>
+
+</body>
+</html>

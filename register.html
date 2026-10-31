@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Account | Recovery Companion</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #fff7fa;
+        }
+
+        .auth-container {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 25px;
+            box-sizing: border-box;
+        }
+
+        .auth-card {
+            width: 100%;
+            max-width: 430px;
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 10px 35px rgba(0,0,0,.08);
+            box-sizing: border-box;
+        }
+
+        h1 {
+            color: #d86b91;
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+            color: #888;
+        }
+
+        label {
+            display: block;
+            margin: 15px 0 7px;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #eadde3;
+            border-radius: 9px;
+            box-sizing: border-box;
+            background: white;
+            font-size: 15px;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #d86b91;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            margin-top: 22px;
+            background: #d86b91;
+            color: white;
+            border: none;
+            border-radius: 9px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #c6537c;
+        }
+
+        #message {
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        a {
+            color: #d86b91;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .date-note {
+            font-size: 12px;
+            color: #999;
+            text-align: left;
+            margin-top: 6px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="auth-container">
+
+        <div class="auth-card">
+
+            <h1>Recovery Companion</h1>
+
+            <p>Create your account</p>
+
+            <form id="registerForm">
+
+                <label for="name">Full Name</label>
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Enter your full name"
+                    required
+                >
+
+                <label for="email">Email Address</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    required
+                >
+
+                <label for="password">Password</label>
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="At least 8 characters"
+                    minlength="8"
+                    required
+                >
+
+                <label for="confirmPassword">Confirm Password</label>
+
+                <input
+                    type="password"
+                    id="confirmPassword"
+                    placeholder="Confirm your password"
+                    required
+                >
+
+                <label for="surgeryType">Type of Surgery</label>
+
+                <select id="surgeryType" required>
+
+                    <option value="">Select your surgery type</option>
+
+                    <option value="partial">
+                        Partial Mastectomy
+                    </option>
+
+                    <option value="total">
+                        Total Mastectomy
+                    </option>
+
+                </select>
+
+                <!-- Date of Surgery -->
+
+                <label for="surgeryDate">Date of Surgery</label>
+
+                <input
+                    type="date"
+                    id="surgeryDate"
+                    name="surgery_date"
+                    required
+                >
+
+                <p class="date-note">
+                    Please enter the date of your surgery.
+                </p>
+
+                <button type="submit">
+                    Create Account
+                </button>
+
+                <div id="message"></div>
+
+            </form>
+
+            <p>
+                Already have an account?
+                <a href="login.html">Login</a>
+            </p>
+
+        </div>
+
+    </div>
+
+    <script>
+        // Prevent selecting a future surgery date
+
+        const surgeryDateInput = document.getElementById("surgeryDate");
+
+        const today = new Date();
+
+        const localToday = new Date(
+            today.getTime() - today.getTimezoneOffset() * 60000
+        ).toISOString().split("T")[0];
+
+        surgeryDateInput.max = localToday;
+    </script>
+
+    <script src="js/auth.js"></script>
+
+</body>
+</html>
+

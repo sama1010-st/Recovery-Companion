@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Exercise Coach | Recovery Companion</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        .exercise-library {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .exercise-library select {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin: 15px 0;
+            font-size: 15px;
+        }
+
+        .exercise-details {
+            background: #fff5f8;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 15px;
+        }
+
+        .exercise-details h3,
+        .camera-panel h3,
+        .exercise-demo-panel h3 {
+            color: #d94f83;
+            margin-bottom: 15px;
+        }
+
+        .exercise-details p {
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+
+        .exercise-note,
+        .medical-note {
+            background: #fff8e8;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            color: #765b25;
+            line-height: 1.6;
+        }
+
+        .camera-exercise-layout {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 22px;
+            align-items: stretch;
+            margin-top: 20px;
+        }
+
+        .camera-panel,
+        .exercise-demo-panel {
+            background: #fff5f8;
+            padding: 18px;
+            border-radius: 15px;
+            min-width: 0;
+        }
+
+        .camera-container {
+            position: relative;
+            width: 100%;
+            margin: 0;
+            background: #111;
+            border-radius: 15px;
+            overflow: hidden;
+            min-height: 300px;
+        }
+
+        #camera {
+            width: 100%;
+            display: none;
+            transform: scaleX(-1);
+        }
+
+        #poseCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform: scaleX(-1);
+        }
+
+        #cameraPlaceholder {
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: white;
+            gap: 12px;
+        }
+
+        .exercise-image-container {
+            width: 100%;
+            min-height: 300px;
+            background: white;
+            border: 1px solid #f2dce6;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px;
+            overflow: hidden;
+        }
+
+        .exercise-image-container img {
+            width: 100%;
+            max-width: 100%;
+            height: 280px;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .demo-caption {
+            color: #806b78;
+            font-size: 13px;
+            text-align: center;
+            margin-top: 12px;
+            line-height: 1.6;
+        }
+
+        .exercise-video-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 12px;
+            padding: 11px 18px;
+            background: #d94f83;
+            color: white;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .exercise-video-link:hover {
+            background: #bd3e70;
+            color: white;
+        }
+
+        .camera-controls {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .camera-controls button,
+        #voiceToggle,
+        #exerciseVoiceButton {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            background: #d94f83;
+            color: white;
+            font-weight: bold;
+            transition: 0.3s ease;
+        }
+
+        .camera-controls button:hover,
+        #voiceToggle:hover,
+        #exerciseVoiceButton:hover {
+            background: #bd3e70;
+        }
+
+        #exerciseVoiceButton {
+            margin-top: 10px;
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .exercise-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .stat-box {
+            background: #fff5f8;
+            padding: 20px;
+            text-align: center;
+            border-radius: 12px;
+        }
+
+        .stat-box h3 {
+            color: #d94f83;
+            font-size: 25px;
+        }
+
+        .stat-box p {
+            margin-top: 5px;
+        }
+
+        html[dir="rtl"] .exercise-video-link {
+            direction: rtl;
+        }
+
+        @media (max-width: 850px) {
+            .camera-exercise-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .exercise-image-container {
+                min-height: 230px;
+            }
+
+            .exercise-image-container img {
+                height: 220px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .exercise-library {
+                padding: 15px;
+            }
+
+            .camera-panel,
+            .exercise-demo-panel {
+                padding: 12px;
+            }
+
+            .camera-container,
+            #cameraPlaceholder {
+                min-height: 230px;
+            }
+
+            .camera-controls button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <a href="index.html" class="back-dashboard-btn" id="backDashboard">
+        <i class="fa-solid fa-arrow-left"></i>
+        <span data-i18n="backDashboard">Back to Dashboard</span>
+    </a>
+
+    <h1 data-i18n="pageTitle">AI Exercise Coach</h1>
+    <p data-i18n="pageSubtitle">Smart movement tracking for recovery support.</p>
+
+    <section class="recovery-overview">
+
+        <div class="recovery-header">
+            <div class="recovery-header-icon">
+                <i class="fa-solid fa-heart-pulse"></i>
+            </div>
+
+            <div>
+                <h2 data-i18n="journeyTitle">Your Recovery Journey</h2>
+                <p data-i18n="journeySubtitle">
+                    Your personal recovery information and weekly overview.
+                </p>
+            </div>
+        </div>
+
+        <div class="recovery-stats">
+
+            <div class="recovery-stat">
+                <i class="fa-solid fa-hospital"></i>
+                <div>
+                    <span data-i18n="surgeryType">Surgery Type</span>
+                    <h3 id="surgeryTypeDisplay">Loading...</h3>
+                </div>
+            </div>
+
+            <div class="recovery-stat">
+                <i class="fa-solid fa-calendar-day"></i>
+                <div>
+                    <span data-i18n="daysSince">Days Since Surgery</span>
+                    <h3 id="daysSinceSurgery">--</h3>
+                </div>
+            </div>
+
+            <div class="recovery-stat">
+                <i class="fa-solid fa-calendar-week"></i>
+                <div>
+                    <span data-i18n="recoveryWeek">Recovery Week</span>
+                    <h3 id="currentRecoveryWeek">--</h3>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="recoveryMessage">
+            <div class="recovery-week-card">
+                <div class="recovery-week-top">
+                    <h3 data-i18n="weeklyOverview">Weekly Recovery Overview</h3>
+                    <span class="recovery-week-badge">Loading...</span>
+                </div>
+                <p data-i18n="loadingRecovery">Loading your recovery information...</p>
+            </div>
+        </div>
+
+        <div class="recovery-medical-note">
+            <i class="fa-solid fa-shield-heart"></i>
+            <p data-i18n="recoveryMedicalNote">
+                Your recovery journey is individual. Always follow your surgeon's
+                and healthcare team's instructions before starting or changing exercises.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- Exercise Library -->
+
+    <div class="exercise-library">
+
+        <h2 data-i18n="exerciseLibrary">Exercise Library</h2>
+        <p data-i18n="selectExercise">Select an exercise to view its information.</p>
+
+        <select id="exerciseSelect">
+            <option value="shoulder-rolls">Shoulder Rolls</option>
+            <option value="shoulder-blade">Shoulder Blade Squeezes</option>
+            <option value="elbow-bends">Elbow Bends</option>
+            <option value="hand-movements">Hand Opening and Closing</option>
+            <option value="arm-lifts">Gentle Arm Lifts</option>
+        </select>
+
+        <div class="exercise-details" id="exerciseDetails">
+
+            <h3 id="exerciseTitle">Shoulder Rolls</h3>
+
+            <div class="exercise-image-container">
+                <img
+                    id="exerciseImage"
+                    src="images/shoulder-rolls.gif"
+                    alt="Shoulder Rolls exercise demonstration"
+                    onerror="this.style.display='none';"
+                >
+            </div>
+
+            <a
+                id="exerciseVideoLink"
+                class="exercise-video-link"
+                href="https://www.youtube.com/results?search_query=shoulder+rolls+exercise+breast+cancer+recovery"
+                target="_blank"
+                rel="noopener noreferrer">
+                <i class="fa-brands fa-youtube"></i>
+                <span id="exerciseVideoText">Watch Exercise Video</span>
+            </a>
+
+            <p id="exerciseDescription">
+                Exercise instructions will appear here.
+            </p>
+
+            <div id="exerciseSteps"></div>
+
+            <button type="button" id="exerciseVoiceButton">
+                <i class="fa-solid fa-volume-high"></i>
+                <span data-i18n="listenInstructions">Listen to Instructions</span>
+            </button>
+
+        </div>
+
+        <div class="exercise-note">
+            <i class="fa-solid fa-circle-info"></i>
+            <span data-i18n="exerciseNote">
+                These are educational exercise examples. Always follow your medical team's
+                instructions. Do not perform an exercise unless it has been approved
+                for your recovery stage.
+            </span>
+        </div>
+
+    </div>
+
+    <!-- Camera and Demonstration -->
+
+    <div class="exercise-library">
+
+        <h2 data-i18n="aiCoach">AI Exercise Coach</h2>
+
+        <p data-i18n="cameraIntro">
+            Follow the exercise demonstration while the camera tracks your upper-body movement.
+        </p>
+
+        <div class="camera-exercise-layout">
+
+            <div class="camera-panel">
+
+                <h3>
+                    <i class="fa-solid fa-camera"></i>
+                    <span data-i18n="liveCamera">Live Camera Tracking</span>
+                </h3>
+
+                <div class="camera-container">
+
+                    <video id="camera" autoplay playsinline></video>
+                    <canvas id="poseCanvas"></canvas>
+
+                    <div id="cameraPlaceholder">
+                        <i class="fa-solid fa-camera fa-3x"></i>
+                        <p data-i18n="cameraNotRunning">Camera is not running</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="exercise-demo-panel">
+
+                <h3>
+                    <i class="fa-solid fa-person-walking"></i>
+                    <span data-i18n="exerciseDemo">Exercise Demonstration</span>
+                </h3>
+
+                <div class="exercise-image-container">
+                    <img
+                        id="exerciseDemoImage"
+                        src="images/shoulder-rolls.gif"
+                        alt="Selected exercise demonstration"
+                    >
+                </div>
+
+                <a
+                    id="demoVideoLink"
+                    class="exercise-video-link"
+                    href="https://www.youtube.com/results?search_query=shoulder+rolls+exercise+breast+cancer+recovery"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    <i class="fa-brands fa-youtube"></i>
+                    <span id="demoVideoText">Watch Exercise Video</span>
+                </a>
+
+                <p class="demo-caption" id="demoCaption">
+                    Follow the selected exercise demonstration.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="camera-controls">
+
+            <button type="button" id="startCamera">
+                <i class="fa-solid fa-play"></i>
+                <span data-i18n="startCamera">Start Camera</span>
+            </button>
+
+            <button type="button" id="stopCamera">
+                <i class="fa-solid fa-stop"></i>
+                <span data-i18n="stopCamera">Stop Camera</span>
+            </button>
+
+            <button type="button" id="voiceToggle">Voice ON</button>
+
+        </div>
+
+        <p id="voiceStatus">Arabic voice guidance is enabled.</p>
+        <p id="status">AI model is waiting.</p>
+        <p id="message">Select an approved exercise before starting.</p>
+
+    </div>
+
+    <!-- Movement Information -->
+
+    <div class="exercise-library">
+
+        <h2 data-i18n="movementInfo">Movement Information</h2>
+
+        <p>
+            <span data-i18n="position">Position:</span>
+            <strong id="positionStatus">--</strong>
+        </p>
+
+        <p>
+            <span data-i18n="bodyDetection">Body Detection:</span>
+            <strong id="bodyStatus">--</strong>
+        </p>
+
+        <div class="exercise-stats">
+
+            <div class="stat-box">
+                <h3 id="armAngle">--</h3>
+                <p data-i18n="armAngle">Arm Angle</p>
+            </div>
+
+            <div class="stat-box">
+                <h3 id="repetitions">0</h3>
+                <p data-i18n="repetitions">Repetitions</p>
+            </div>
+
+            <div class="stat-box">
+                <h3 id="sessionStatus">Not Started</h3>
+                <p data-i18n="sessionStatus">Session Status</p>
+            </div>
+
+        </div>
+
+        <p class="medical-note" data-i18n="aiMedicalNote">
+            AI movement measurements are experimental and are not a medical assessment
+            or a prescribed exercise range.
+        </p>
+
+    </div>
+
+</div>
+
+<script type="module" src="js/exercises.js"></script>
+<script src="js/language.js"></script>
+
+</body>
+</html>
+
+
+
+            

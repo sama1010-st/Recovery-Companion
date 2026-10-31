@@ -1,0 +1,208 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medications | Recovery Companion</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="logo">
+            <div class="logo-icon">
+                <i class="fa-solid fa-heart-pulse"></i>
+            </div>
+            <div>
+                <h2>Recovery</h2>
+                <span>COMPANION</span>
+            </div>
+        </div>
+
+        <div class="menu-title">MAIN MENU</div>
+
+        <nav>
+            <a href="index.html" class="nav-link">
+                <i class="fa-solid fa-house"></i> Dashboard
+            </a>
+
+            <a href="exercise.html" class="nav-link">
+                <i class="fa-solid fa-person-walking"></i> Exercise Coach
+            </a>
+
+            <a href="medications.html" class="nav-link active">
+                <i class="fa-solid fa-pills"></i> Medications
+            </a>
+
+            <a href="daily-checkin.html" class="nav-link">
+                <i class="fa-solid fa-heart-pulse"></i> Daily Check-in
+            </a>
+
+            <a href="progress.html" class="nav-link">
+                <i class="fa-solid fa-chart-line"></i> My Progress
+            </a>
+
+            <a href="awareness.html" class="nav-link">
+                <i class="fa-solid fa-book-open"></i> Awareness
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="help-card">
+                <i class="fa-solid fa-heart"></i>
+                <h3>We're here for you</h3>
+                <p>Your recovery journey matters. Take it one day at a time.</p>
+            </div>
+
+            <a href="settings.html" class="nav-link">
+                <i class="fa-solid fa-gear"></i> Settings
+            </a>
+        </div>
+
+    </aside>
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div>
+                <p class="welcome-small">YOUR RECOVERY SPACE</p>
+                <h2>Medications <span>♡</span></h2>
+            </div>
+
+        </header>
+
+        <!-- Back to Dashboard -->
+        <a href="index.html" class="back-dashboard-btn">
+            <i class="fa-solid fa-arrow-left"></i>
+            Back to Dashboard
+        </a>
+
+        <section class="dashboard">
+       
+
+            <div class="hero-card">
+                <div class="hero-text">
+                    <span class="hero-tag">YOUR HEALTH, YOUR SCHEDULE</span>
+                    <h1>Stay on track<br>with your medication.</h1>
+                    <p>
+                        Organize your medication schedule and keep track
+                        of the doses you have taken.
+                    </p>
+                </div>
+
+                <div class="hero-decoration">
+                    <i class="fa-solid fa-pills"></i>
+                    <div class="circle circle-one"></div>
+                    <div class="circle circle-two"></div>
+                </div>
+            </div>
+
+            <div class="section-heading">
+                <div>
+                    <h2>Medication Management</h2>
+                    <p>Manage your prescribed medications.</p>
+                </div>
+            </div>
+
+            <section class="content-card medication-form-card">
+
+                <div class="card-header">
+                    <div>
+                        <h3><i class="fa-solid fa-plus-circle"></i> Add New Medication</h3>
+                        <p>Enter the details provided by your medical team.</p>
+                    </div>
+                </div>
+
+                <form id="medicationForm">
+
+                    <div class="medication-form-grid">
+
+                        <div class="health-field">
+                            <label for="medName">Medication Name *</label>
+                            <input type="text" id="medName" placeholder="Enter medication name" required>
+                        </div>
+
+                        <div class="health-field">
+                            <label for="medDose">Dose / Instructions *</label>
+                            <input type="text" id="medDose" placeholder="As prescribed by your doctor" required>
+                        </div>
+
+                        <div class="health-field">
+                            <label for="medTime">Medication Time *</label>
+                            <input type="time" id="medTime" required>
+                        </div>
+
+                        <div class="health-field">
+                            <label for="medNotes">Additional Notes</label>
+                            <input type="text" id="medNotes" placeholder="Optional notes">
+                        </div>
+
+                    </div>
+
+                    <button type="submit" class="primary-btn save-checkin-btn">
+                        <i class="fa-solid fa-plus"></i> Add Medication
+                    </button>
+
+                </form>
+
+            </section>
+
+            <section class="content-card medication-list-card">
+
+                <div class="card-header">
+                    <div>
+                        <h3>My Medications</h3>
+                        <p>Your saved medication schedule.</p>
+                    </div>
+
+                    <span id="medicationCount">0 medications</span>
+                </div>
+
+                <div id="medicationList">
+                    <p class="medication-empty">
+                        No medications added yet.
+                    </p>
+                </div>
+
+            </section>
+
+            <p class="medical-note">
+                <i class="fa-solid fa-circle-info"></i>
+                This page only organizes information you enter. Always follow
+                your doctor's prescription. It does not recommend medicines or doses.
+            </p>
+
+            <footer>
+                <p>Made with <span>♥</span> for your recovery journey.</p>
+                <p>Recovery Companion © 2026</p>
+            </footer>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/reminders.js"></script>
+<script src="js/language.js"></script>
+
+</body>
+</html>
