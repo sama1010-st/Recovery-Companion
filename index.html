@@ -7,13 +7,16 @@
 
     <title>Recovery Companion | Dashboard</title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <!-- CSS: File is in the repository root -->
+    <link rel="stylesheet" href="style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
@@ -117,7 +120,17 @@
 
             <div class="header-actions">
 
-                
+                <!-- Login and Register -->
+
+                <a href="login.html" class="start-btn">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                    Login
+                </a>
+
+                <a href="register.html" class="primary-btn">
+                    <i class="fa-solid fa-user-plus"></i>
+                    Register
+                </a>
 
                 <button class="notification" aria-label="Notifications">
                     <i class="fa-regular fa-bell"></i>
@@ -202,8 +215,6 @@
 
             <div class="stats-grid">
 
-                <!-- Exercises Statistics -->
-
                 <div class="stat-card">
 
                     <div class="stat-icon pink">
@@ -212,14 +223,13 @@
 
                     <p data-i18n="todaysExercises">Today's Exercises</p>
                     <h2>2 <small>/ 3</small></h2>
+
                     <span class="stat-note" data-i18n="demoInformation">
                         Demo information
                     </span>
 
                 </div>
 
-
-                <!-- Medication Statistics -->
 
                 <div class="stat-card">
 
@@ -241,8 +251,6 @@
                 </div>
 
 
-                <!-- Daily Check-in Statistics -->
-
                 <div class="stat-card">
 
                     <div class="stat-icon peach">
@@ -259,8 +267,6 @@
 
                 </div>
 
-
-                <!-- Recovery Days -->
 
                 <div class="stat-card">
 
@@ -383,14 +389,11 @@
 
                     </div>
 
-
                     <div id="remindersList"></div>
-
 
                     <p class="medical-note" id="remindersNote">
                         Loading reminders...
                     </p>
-
 
                     <p class="medical-note">
                         <i class="fa-solid fa-shield-heart"></i>
@@ -423,12 +426,10 @@
 
                 </div>
 
-
                 <p class="health-preview-text" data-i18n="healthPreview">
                     Your daily health assessment helps you record pain,
                     wound condition, arm swelling, and fatigue.
                 </p>
-
 
                 <a href="daily-checkin.html" class="primary-btn health-preview-btn">
                     <i class="fa-solid fa-heart-pulse"></i>
@@ -505,11 +506,11 @@
 </div>
 
 
-<!-- JavaScript Files -->
+<!-- JavaScript Files: Files are in the repository root -->
 
-<script src="js/language.js"></script>
-<script src="js/main.js"></script>
-<script src="js/dashboard.js"></script>
+<script src="language.js"></script>
+<script src="main.js"></script>
+<script src="dashboard.js"></script>
 
 </body>
 </html>
